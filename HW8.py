@@ -15,7 +15,13 @@ def load_rest_data(db):
     and each inner key is a dictionary, where the key:value pairs should be the category, 
     building, and rating for the restaurant.
     """
-    pass
+    path = os.path.dirname(os.path.abspath(__file__))
+    conn = sqlite3.connect(path+'/'+db)
+    cur = conn.cursor()
+    
+    cur.execute('''SELECT restaurants.name,categories.category, buildings.building,restaurants.rating
+                    FROM restaurants JOIN categories JOIN buildings ON
+                    restaurants.category_id = )''')
 
 def plot_rest_categories(db):
     """
